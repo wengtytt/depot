@@ -1,0 +1,23 @@
+.HomeSlider {
+    height: 338px;
+    .slick-list {
+        height: 100%;
+        .slick-track {
+            height: 100%;
+            .slick-slide {
+                height: 100%;
+                background-color: #ccc;
+            }
+        }
+    }
+    .slick-next,
+    .slick-prev {
+        z-index: 1;
+    }
+    .slick-next {
+        right: 25px;
+    }
+    .slick-prev {
+        left: 25px;
+    }
+}
