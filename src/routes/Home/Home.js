@@ -1,38 +1,27 @@
 import React from 'react';
-import Slider from 'react-slick';
+import Slider from '../../Utilities/Slider';
 import './Home.scss';
 
+import { NavLink } from 'react-router-dom';
+import configureSlidsStore from './hooks/slides';
+import { useStore } from '../../hooks-store/store';
+
+configureSlidsStore();
+
 const Home = props => {
-    const sliderSettings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    };
+    const state = useStore()[0];
+    console.log(state);
+    const slides = state.slides.map((item, i) => {
+        return (
+            <div key={i} data-targetslide={i}>
+                <NavLink to={item.path}></NavLink>
+            </div>
+        );
+    });
 
     return (
         <section>
-            <Slider className="HomeSlider" {...sliderSettings}>
-                <div>
-                    <h3>1</h3>
-                </div>
-                <div>
-                    <h3>2</h3>
-                </div>
-                <div>
-                    <h3>3</h3>
-                </div>
-                <div>
-                    <h3>4</h3>
-                </div>
-                <div>
-                    <h3>5</h3>
-                </div>
-                <div>
-                    <h3>6</h3>
-                </div>
-            </Slider>
+            <Slider className="HomeSlider">{slides}</Slider>
         </section>
     );
 };
