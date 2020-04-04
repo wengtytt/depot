@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 
+// Notice: Do the following to avoid conflicts!
+// - All state name shoud be {filename}
+// - All actions name should be {FILENAME}_{ACTION_NAME}
+
 let globalState = {};
 let listeners = [];
 let actions = {};

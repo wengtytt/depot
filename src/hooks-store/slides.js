@@ -1,4 +1,4 @@
-import { initStore } from '../../../hooks-store/store';
+import { initStore } from './store';
 
 const configureStore = () => {
     const actions = {};
