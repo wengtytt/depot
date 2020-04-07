@@ -1,9 +1,8 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 import NotificationBar from '../NotificationBar';
 import Navbar from '../Navbar';
-
-import { Route } from 'react-router-dom';
 import Home from '../../routes/Home';
 
 function App() {
