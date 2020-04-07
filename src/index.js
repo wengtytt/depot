@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './Components/App';
+import { initFirebase } from './Firebase/firebase';
 
-import configureTasksStore from './hooks-store/tasks';
-
-configureTasksStore();
+// Firebase
+initFirebase();
 
 ReactDOM.render(
     <BrowserRouter>

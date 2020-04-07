@@ -5,9 +5,11 @@ import './Home.scss';
 import Quote from '../../Components/Quote';
 
 import { NavLink } from 'react-router-dom';
-import configureSlidsStore from './hooks/slides';
+import configureSlidsStore from '../../hooks-store/slides';
+import configureTasksStore from '../../hooks-store/tasks';
 import { useStore } from '../../hooks-store/store';
 
+configureTasksStore();
 configureSlidsStore();
 
 const Home = (props) => {
