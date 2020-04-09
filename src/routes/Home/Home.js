@@ -7,14 +7,18 @@ import Quote from '../../Components/Quote';
 import { NavLink } from 'react-router-dom';
 import configureSlidsStore from '../../hooks-store/slides';
 import configureTasksStore from '../../hooks-store/tasks';
+import configureCitiesStore from '../../hooks-store/cities';
+import configureProjectsStore from '../../hooks-store/projects';
 import { useStore } from '../../hooks-store/store';
 
 configureTasksStore();
 configureSlidsStore();
+configureCitiesStore();
+configureProjectsStore();
 
 const Home = (props) => {
     const state = useStore()[0];
-    console.log(state);
+
     const slides = state.slides.map((item, i) => {
         return (
             <div key={i} data-targetslide={i}>

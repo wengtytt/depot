@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react"
-import './Popup.scss'
+import React, { useRef, useEffect } from 'react';
+import './Popup.scss';
 
 /**
  * Hook that alerts clicks outside of the passed ref
@@ -11,26 +11,26 @@ function useOutsideClickListener(ref, close) {
          */
         function handleClickOutside(event) {
             if (ref.current && !ref.current.contains(event.target)) {
-                close()
+                close();
             }
         }
         // Bind the event listener
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener('mousedown', handleClickOutside);
         return () => {
             // Unbind the event listener on clean up
-            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [ref])
+    }, [ref, close]);
 }
 
 /**
  * Component Popup
  */
 const Popup = (props) => {
-    console.log('POPUP RENDERING')
+    console.log('POPUP RENDERING');
 
     const wrapperRef = useRef(null);
-    useOutsideClickListener(wrapperRef, props.close)
+    useOutsideClickListener(wrapperRef, props.close);
 
     return (
         <div className="popup">
@@ -38,7 +38,7 @@ const Popup = (props) => {
                 {props.children}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Popup
+export default Popup;
