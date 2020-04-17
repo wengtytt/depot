@@ -3,18 +3,21 @@ import Slider from '../../Utilities/Slider';
 import './Home.scss';
 
 import Quote from '../../Components/Quote';
+import ProjectDemo from '../../Components/ProjectDemo';
 
 import { NavLink } from 'react-router-dom';
 import configureSlidsStore from '../../hooks-store/slides';
 import configureTasksStore from '../../hooks-store/tasks';
 import configureCitiesStore from '../../hooks-store/cities';
 import configureProjectsStore from '../../hooks-store/projects';
+import configureDemoStore from '../../hooks-store/demos';
 import { useStore } from '../../hooks-store/store';
 
 configureTasksStore();
 configureSlidsStore();
 configureCitiesStore();
 configureProjectsStore();
+configureDemoStore();
 
 const Home = (props) => {
     const state = useStore()[0];
@@ -73,7 +76,7 @@ const Home = (props) => {
             <section>
                 <Slider className="HomeSlider">{slides}</Slider>
             </section>
-            <section className="gray contractors">
+            <section className="gray contractors block">
                 <h2>为您安排最值得信赖的渥太华装修公司</h2>
                 <hr></hr>
                 <p>甄选多伦多本地华人专业装修公司，丰富选择实现理想装修</p>
@@ -81,6 +84,12 @@ const Home = (props) => {
                 <Quote>
                     <div className="btn">免费获取报价</div>
                 </Quote>
+            </section>
+            <section className="block">
+                <h2>家居室内装修和商业装修案例</h2>
+                <hr></hr>
+                <p>集合所有优家网装修设计案例，一站解决所有装修问题</p>
+                <ProjectDemo></ProjectDemo>
             </section>
         </section>
     );
